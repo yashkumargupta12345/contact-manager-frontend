@@ -7,8 +7,8 @@ const Contacts = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [showOptions, setShowOptions] = useState(null);
-  
-  const filteredContacts = dummyContacts().filter(contact => 
+
+  const filteredContacts = dummyContacts().filter(contact =>
     contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     contact.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     contact.phone.includes(searchTerm)
@@ -28,7 +28,7 @@ const Contacts = () => {
             {filteredContacts.length} {filteredContacts.length === 1 ? 'contact' : 'contacts'}
           </p>
         </div>
-        
+
         <div className="flex gap-3">
           <button className="bg-white border border-gray-300 rounded-lg px-4 py-2 flex items-center gap-2 text-gray-700 hover:bg-gray-50 transition-colors">
             <IoFunnel className="text-gray-500" />
@@ -40,15 +40,15 @@ const Contacts = () => {
           </button>
         </div>
       </div>
-      
+
       {/* Search and Controls */}
       <div className="bg-white rounded-xl shadow-sm p-4 mb-8">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <IoSearch className="h-5 w-5 text-gray-400" />
           </div>
-          <input 
-            type="search" 
+          <input
+            type="search"
             placeholder="Search contacts..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -56,7 +56,7 @@ const Contacts = () => {
           />
         </div>
       </div>
-      
+
       {/* Contact Cards Grid */}
       {filteredContacts.length === 0 ? (
         <div className="bg-white rounded-xl shadow-sm p-12 text-center">
@@ -71,19 +71,19 @@ const Contacts = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {filteredContacts.map((contact) => (
-            <div 
-              key={contact.id} 
+            <div
+              key={contact.id}
               className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all hover:shadow-md group"
             >
               <div className="p-5">
                 <div className="flex justify-between items-start">
-                  <div 
+                  <div
                     className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl"
                     style={{ backgroundColor: randomColors[Math.floor(Math.random() * randomColors.length)].hex }}
                   >
                     {getInitials(contact.name)}
                   </div>
-                  
+
                   <div className="flex gap-1">
                     <button className="text-gray-400 hover:text-yellow-500 p-1">
                       {contact.favorite ? (
@@ -92,13 +92,13 @@ const Contacts = () => {
                         <FaRegStar className="hover:text-yellow-500" />
                       )}
                     </button>
-                    
-                    <button 
+
+                    <button
                       className="text-gray-400 hover:text-gray-600 p-1 relative"
                       onClick={() => setShowOptions(showOptions === contact.id ? null : contact.id)}
                     >
                       <IoEllipsisVertical />
-                      
+
                       {showOptions === contact.id && (
                         <div className="absolute right-0 top-full mt-1 w-40 bg-white rounded-lg shadow-lg py-2 z-10 border border-gray-200">
                           <button className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">
@@ -112,18 +112,18 @@ const Contacts = () => {
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="mt-4">
                   <h3 className="text-lg font-semibold text-gray-800">{contact.name}</h3>
                   <p className="text-gray-600 mt-1 truncate">{contact.email}</p>
                   <p className="text-gray-700 font-medium mt-2">{contact.phone}</p>
                 </div>
-                
+
                 {contact.tags && contact.tags.length > 0 && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {contact.tags.map((tag, index) => (
-                      <span 
-                        key={index} 
+                      <span
+                        key={index}
                         className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-full"
                       >
                         {tag}
@@ -132,7 +132,7 @@ const Contacts = () => {
                   </div>
                 )}
               </div>
-              
+
               <div className="border-t border-gray-100 px-5 py-3 bg-gray-50 flex justify-end">
                 <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">
                   View Details
