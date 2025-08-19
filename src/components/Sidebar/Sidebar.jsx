@@ -1,7 +1,7 @@
 import React from 'react';
 import { menuItems } from '../../assets/assets';
 import { FaUserCircle } from 'react-icons/fa';
-import { FiLogOut } from 'react-icons/fi';
+import { FiLogOut,FiLogIn } from 'react-icons/fi';
 
 const Sidebar = ({ activePage, setActivePage }) => {
   const handleOptionClick = (option) => {
@@ -68,6 +68,7 @@ const Sidebar = ({ activePage, setActivePage }) => {
           </div>
           <button className="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-gray-700 transition-colors">
             <FiLogOut className="text-lg" />
+            <FiLogIn className="" />
           </button>
         </div>
       </div>
