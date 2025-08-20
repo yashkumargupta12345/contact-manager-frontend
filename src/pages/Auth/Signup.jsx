@@ -265,8 +265,8 @@ const Signup = ({ onSignup, onSwitchPage }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={`w-full px-4 py-3 rounded-lg border transition duration-200 ${validationErrors.name?.length > 0
-                    ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                  ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
+                  : 'border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
                   }`}
                 placeholder="John Doe"
                 required
@@ -298,8 +298,8 @@ const Signup = ({ onSignup, onSwitchPage }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={`w-full px-4 py-3 rounded-lg border transition duration-200 ${validationErrors.email?.length > 0
-                    ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                  ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
+                  : 'border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
                   }`}
                 placeholder="you@example.com"
                 required
@@ -330,8 +330,8 @@ const Signup = ({ onSignup, onSwitchPage }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={`w-full px-4 py-3 rounded-lg border transition duration-200 ${validationErrors.password?.length > 0
-                    ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
+                  ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
+                  : 'border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
                   }`}
                 placeholder="••••••••"
                 required
@@ -344,9 +344,9 @@ const Signup = ({ onSignup, onSwitchPage }) => {
                   <div className="flex justify-between items-center mb-1">
                     <span className="text-xs text-gray-600">Password strength:</span>
                     <span className={`text-xs font-medium ${passwordStrength >= 80 ? 'text-green-600' :
-                        passwordStrength >= 60 ? 'text-blue-600' :
-                          passwordStrength >= 40 ? 'text-yellow-600' :
-                            passwordStrength >= 20 ? 'text-orange-600' : 'text-red-600'
+                      passwordStrength >= 60 ? 'text-blue-600' :
+                        passwordStrength >= 40 ? 'text-yellow-600' :
+                          passwordStrength >= 20 ? 'text-orange-600' : 'text-red-600'
                       }`}>
                       {strengthText}
                     </span>
@@ -439,4 +439,6 @@ const Signup = ({ onSignup, onSwitchPage }) => {
 };
 
 export default Signup;
+
+
 
