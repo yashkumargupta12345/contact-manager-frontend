@@ -33,31 +33,38 @@ class SimpleAPI {
     }
 
     // Simple POST request
-    async post(endpoint, data) {
-        try {
-            const response = await fetch(`${this.baseURL}${endpoint}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    ...(localStorage.getItem('token') && {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    })
-                },
-                body: JSON.stringify(data)
-            });
+    // In src/api/index.js, add logging to see what's being sent
+async post(endpoint, data) {
+    try {
+        const token = localStorage.getItem('token');
+        console.log('Sending request with token:', token ? 'Token exists' : 'No token');
+        console.log('Request URL:', `${this.baseURL}${endpoint}`);
+        console.log('Request data:', data);
 
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
+        const response = await fetch(`${this.baseURL}${endpoint}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                ...(token && {
+                    'Authorization': `Bearer ${token}`
+                })
+            },
+            body: JSON.stringify(data)
+        });
 
-            return await response.json();
-        } catch (error) {
-            if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
-                throw new Error('Unable to connect to server. Please check if the backend is running.');
-            }
-            throw error;
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
         }
+
+        return await response.json();
+    } catch (error) {
+        if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+            throw new Error('Unable to connect to server. Please check if the backend is running.');
+        }
+        throw error;
     }
+}
+
 
     // Simple PUT request
     async put(endpoint, data) {
